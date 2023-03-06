@@ -4,25 +4,25 @@
         <th>Name</th>
         <th>Phone</th>
         <th>Birthday Date</th>
-        <th>Has a member card?</th>
+        <th>Salary</th>
     </thead>
     <tbody>
-        <% @records_array.each do |client| %>
+        <% @records_array.each do |worker| %>
             <tr>
             <td>
-                <%= client["id"] %>
+                <%= worker["id"] %>
             </td>
             <td>
-                <%= client["name"] %>
+                <%= worker["name"] %>
             </td>
             <td>
-                <%= client["phone"] %>
+                <%= worker["phone"] %>
             </td>
             <td>
-                <%= client["birthday_date"] %>
+                <%= worker["birthday_date"] %>
             </td>
             <td>
-                <%= client["has_member_card"] %>
+                <%= worker["salary"] %>
             </td>
             </tr>
         <% end %>
