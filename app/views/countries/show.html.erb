@@ -4,10 +4,11 @@
     <%= f.submit 'Submit', class: 'btn btn-dark' %>
 <% end %>
 
-<%= button_to "Add new data", hotels_add_data_path, method: :post, class: "btn btn-dark btn-add"%>
+<%= button_to "Add new data", countries_add_data_path, method: :post, class: "btn btn-dark btn-add"%>
 
 <%= link_to "Back", root_path, class: "btn btn-dark btn-back"%>
-<div id = "hotels">
-  <%= render "hotels_db" %>
+
+<div id = "countries">
+  <%= render "countries_db" %>
 </div>
 

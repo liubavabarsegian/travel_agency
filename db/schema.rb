@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_192858) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_08_170335) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_192858) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "country_id"
+    t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -49,10 +51,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_192858) do
     t.integer "flight_duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "departure_flight_id"
+    t.bigint "arrival_flight_id"
     t.bigint "departure_airport_id"
     t.bigint "arrival_airport_id"
     t.index ["arrival_airport_id"], name: "index_flights_on_arrival_airport_id"
+    t.index ["arrival_flight_id"], name: "index_flights_on_arrival_flight_id"
     t.index ["departure_airport_id"], name: "index_flights_on_departure_airport_id"
+    t.index ["departure_flight_id"], name: "index_flights_on_departure_flight_id"
   end
 
   create_table "hotels", force: :cascade do |t|
@@ -63,7 +69,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_192858) do
     t.integer "price_for_a_person"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "city"
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_hotels_on_city_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -80,10 +87,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_192858) do
     t.string "meal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "departure_flight_id"
-    t.bigint "arrival_flight_id"
-    t.index ["arrival_flight_id"], name: "index_trips_on_arrival_flight_id"
-    t.index ["departure_flight_id"], name: "index_trips_on_departure_flight_id"
   end
 
   create_table "workers", force: :cascade do |t|
@@ -95,8 +98,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_192858) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "flights", "flights", column: "arrival_airport_id"
-  add_foreign_key "flights", "flights", column: "departure_airport_id"
-  add_foreign_key "trips", "flights", column: "arrival_flight_id"
-  add_foreign_key "trips", "flights", column: "departure_flight_id"
 end

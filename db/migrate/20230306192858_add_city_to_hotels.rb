@@ -1,5 +1,5 @@
 class AddCityToHotels < ActiveRecord::Migration[7.0]
   def change
-    add_column :hotels, :city, :string
+    add_reference :hotels, :city
   end
 end
