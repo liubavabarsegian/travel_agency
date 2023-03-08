@@ -4,8 +4,11 @@
     <%= f.submit 'Submit', class: 'btn btn-dark' %>
 <% end %>
 
+
+<%= link_to "Back", root_path, class: "btn btn-dark btn-back"%>
+
+<h5>Total rows:  <%= @records_array.count%></h5>
+
 <div id = "trips">
   <%= render "trips_db" %>
 </div>
-
-<%= link_to "Back", root_path, class: "btn btn-dark btn-back"%>

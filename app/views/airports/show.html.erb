@@ -4,13 +4,12 @@
     <%= f.submit 'Submit', class: 'btn btn-dark' %>
 <% end %>
 
-<%= button_to "Add new data", clients_add_data_path, method: :post, class: "btn btn-dark btn-add"%>
+<%= button_to "Add new data",airports_add_data_path, method: :post, class: "btn btn-dark btn-add"%>
 
 <%= link_to "Back", root_path, class: "btn btn-dark btn-back"%>
 
 <h5>Total rows:  <%= @records_array.count%></h5>
-
-<div id = "clients">
-  <%= render "clients_db" %>
+<div id = "airports">
+  <%= render "airports_db" %>
 </div>
 

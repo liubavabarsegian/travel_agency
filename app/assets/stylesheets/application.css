@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-.form
+.form, h5
 {
     margin: 0px 100px;
 }
