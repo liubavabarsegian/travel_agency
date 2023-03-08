@@ -4,8 +4,11 @@
     <%= f.submit 'Submit', class: 'btn btn-dark' %>
 <% end %>
 
+<%= button_to "Add new data", clients_add_data_path, method: :post, class: "btn btn-dark btn-add"%>
+
+<%= link_to "Back", root_path, class: "btn btn-dark btn-back"%>
+
 <div id = "clients">
   <%= render "clients_db" %>
 </div>
 
-<%= link_to "Back", root_path, class: "btn btn-dark btn-back"%>
