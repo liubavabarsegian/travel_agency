@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_185828) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_145651) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "aircompanies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "airports", force: :cascade do |t|
     t.string "name"
@@ -46,21 +52,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_185828) do
   end
 
   create_table "flights", force: :cascade do |t|
-    t.string "airway_company"
     t.datetime "departure_time"
     t.integer "price"
     t.boolean "meal_included"
     t.integer "flight_duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "departure_flight_id"
-    t.bigint "arrival_flight_id"
     t.bigint "departure_airport_id"
     t.bigint "arrival_airport_id"
+    t.bigint "aircompany_id"
+    t.index ["aircompany_id"], name: "index_flights_on_aircompany_id"
     t.index ["arrival_airport_id"], name: "index_flights_on_arrival_airport_id"
-    t.index ["arrival_flight_id"], name: "index_flights_on_arrival_flight_id"
     t.index ["departure_airport_id"], name: "index_flights_on_departure_airport_id"
-    t.index ["departure_flight_id"], name: "index_flights_on_departure_flight_id"
   end
 
   create_table "hotels", force: :cascade do |t|
@@ -89,6 +92,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_185828) do
     t.string "meal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "departure_flight_id"
+    t.bigint "arrival_flight_id"
+    t.index ["arrival_flight_id"], name: "index_trips_on_arrival_flight_id"
+    t.index ["departure_flight_id"], name: "index_trips_on_departure_flight_id"
   end
 
   create_table "workers", force: :cascade do |t|

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'countries/show'
   get 'cities/show'
   get 'airports/show'
+  get 'aircompanies/show'
+  get 'flights/show'
 
   post 'clients/query'
   post 'workers/query'
@@ -16,6 +18,8 @@ Rails.application.routes.draw do
   post 'countries/query'
   post 'cities/query'
   post 'airports/query'
+  post 'aircompanies/query'
+  post 'flights/query'
 
   post 'clients/add_data'
   post 'workers/add_data'
@@ -23,6 +27,8 @@ Rails.application.routes.draw do
   post 'cities/add_data'
   post 'hotels/add_data'
   post 'airports/add_data'
+  post 'aircompanies/add_data'
+  post 'flights/add_data'
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
