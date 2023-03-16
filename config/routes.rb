@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'orders/show'
   root 'home#schema'
   get 'home/info'
 
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
   get 'airports/show'
   get 'aircompanies/show'
   get 'flights/show'
+  get 'orders/show'
 
   post 'clients/query'
   post 'workers/query'
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   post 'aircompanies/query'
   post 'flights/query'
   post 'trips/query'
+  post 'orders/query'
 
   post 'clients/add_data'
   post 'workers/add_data'
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
   post 'aircompanies/add_data'
   post 'flights/add_data'
   post 'trips/add_data'
+  post 'orders/add_data'
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

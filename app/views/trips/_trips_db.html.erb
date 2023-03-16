@@ -4,6 +4,7 @@
         <th>Departure date</th>
         <th>Arrival date</th>
         <th>Meal</th>
+        <th>Hotel</th>
         <th>Departure Flight</th>
         <th>Arrival Flight </th>
     </thead>
@@ -27,6 +28,9 @@
             </td>
             <td>
                 <%= trip["arrival_flight_id"] %>
+            </td>
+            <td>
+                <%= trip["hotel_id"] %>
             </td>
             </tr>
         <% end %>
